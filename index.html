@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>뿔의 비밀 탐구실 | 겉넓이와 부피</title>
+<style>
+:root{--bg:#f6f8ff;--ink:#202d4b;--muted:#66738e;--primary:#5a54df;--light:#eeecff;--cyan:#23b3df;--line:#dfe5f3;--white:#fff;--good:#17895c;--orange:#ffaf4d}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #ffb857;outline-offset:3px}.shell{max-width:1100px;margin:auto;padding:20px 18px 64px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.logo{font-weight:900;font-size:1.1rem}.pill{border-radius:99px;background:white;padding:8px 13px;color:var(--primary);font-size:.82rem;font-weight:800;box-shadow:0 4px 22px #2c328010}.hero{background:linear-gradient(125deg,#6760ea,#8c73f2);color:white;border-radius:28px;padding:28px;margin:18px 0 22px;position:relative;overflow:hidden}.hero:after{content:'◭';position:absolute;font-size:190px;right:35px;top:-60px;opacity:.1}.hero h1{font-size:clamp(1.7rem,4vw,2.7rem);margin:5px 0 10px}.hero p{margin:0;max-width:650px;line-height:1.7;color:#eeeaff}.eyebrow{font-size:.81rem;font-weight:800;letter-spacing:.06em}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px}.tab{border:1px solid var(--line);background:#fff;border-radius:15px;padding:14px 7px;font-weight:800;color:#66738e}.tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}.panel{display:none}.panel.active{display:block}.card{background:white;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 9px 25px #273e7009}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.sectionhead h2{font-size:1.3rem;margin:0 0 8px}.description{margin:0 0 18px;color:var(--muted);line-height:1.65}.switch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.switch button,.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:11px 16px;border-radius:12px;font-weight:800}.switch button.active,.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn.secondary{background:var(--light);color:var(--primary);border-color:transparent}.btn:disabled{opacity:.42;cursor:not-allowed}.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.two{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.stage{background:linear-gradient(#f7fbff,#eef6ff);border:1px solid #dcebf5;border-radius:20px;overflow:hidden}.stage svg{width:100%;height:auto;display:block;user-select:none}.note{background:#f1f5ff;border-radius:15px;padding:13px 15px;line-height:1.65;font-size:.94rem}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stat{padding:11px;border:1px solid var(--line);background:#fff;border-radius:14px;text-align:center}.stat strong{display:block;font-size:1.3rem;color:var(--primary)}.stat span{color:var(--muted);font-size:.78rem}.bar{height:12px;background:#e0eafa;border-radius:99px;overflow:hidden}.bar>div{width:0;height:100%;background:linear-gradient(90deg,#2ebfdc,#5b72ed);transition:width .35s}.question{margin:18px 0 10px;font-weight:800}.choices{display:flex;gap:7px;flex-wrap:wrap}.choices button{border:1px solid #cbd4e6;border-radius:12px;background:white;padding:10px 14px;font-weight:800}.choices button.selected{background:var(--light);border-color:var(--primary);color:var(--primary)}.feedback{font-weight:800;min-height:27px;margin-top:12px;color:var(--primary)}.instructions{background:#fff9eb;border:1px solid #ffe7b3;border-radius:15px;padding:13px 16px;line-height:1.6;margin-bottom:15px}.dropzone{touch-action:none;cursor:grab}.dropzone:active{cursor:grabbing}.waterstream{opacity:0;pointer-events:none}.waterstream.visible{opacity:1}.pour-svg{touch-action:none}.shape-handle{touch-action:none;cursor:grab}.shape-handle:active{cursor:grabbing}.capacityText{font-size:14px;fill:#4f6482;font-weight:800}.small{font-size:.86rem;color:var(--muted)}.net-stage{min-height:270px;display:grid;place-items:center;padding:14px}.net-stage svg{max-width:410px;max-height:310px}.rangebox{display:grid;gap:10px;margin:14px 0}input[type=range]{width:100%;accent-color:var(--primary)}.formula{font-size:1.1rem;font-weight:900;text-align:center;background:#f3f2ff;border-radius:15px;padding:18px;margin-top:14px}.inputline{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}.inputline input{width:110px;border:1px solid #bbc7db;border-radius:12px;padding:11px}.tag{display:inline-block;border-radius:8px;background:#eaf8f6;color:#168b78;padding:5px 9px;font-size:.8rem;font-weight:800}.footer{font-size:.8rem;color:var(--muted);margin-top:24px;text-align:center}.hidden{display:none!important}.shake{animation:shake .35s}@keyframes shake{0%,100%{transform:translateX(0)}30%{transform:translateX(-5px)}60%{transform:translateX(5px)}}@media(max-width:700px){.shell{padding:12px 11px 36px}.hero{padding:22px 18px;border-radius:22px}.tabs{gap:6px}.tab{padding:12px 3px;font-size:.83rem}.card{padding:16px;border-radius:18px}.two{grid-template-columns:1fr}.statrow{gap:6px}.stat strong{font-size:1.06rem}.stat span{font-size:.7rem}}
+
+.subhead{font-size:1.02rem;font-weight:900;margin:18px 0 12px;color:#35456c}.explore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.interact-stage{min-height:230px;display:grid;place-items:center}.interact-stage svg{width:100%;max-height:310px;touch-action:none;user-select:none}.viewer-caption{display:flex;justify-content:space-between;gap:4px;font-weight:900;margin:6px 0 8px}.viewer-caption span{font-size:.78rem;color:var(--muted);font-weight:700}.center{justify-content:center}.sketchbox{height:210px;border:2px dashed #c5c9ed;border-radius:18px;overflow:hidden;background:white;touch-action:none}.sketchbox canvas{width:100%;height:100%;display:block;touch-action:none}.area-output{margin-top:12px}.area-output b{color:#4545aa}@media(max-width:620px){.explore-grid{grid-template-columns:1fr}.viewer-caption{font-size:.9rem}.interact-stage{min-height:215px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="logo">🔺 뿔의 비밀 탐구실</div><div class="pill">중학교 1학년 수학</div></header>
+<div class="hero"><div class="eyebrow">직접 만지는 수학 실험실</div><h1>펼치고, 기울이고, 발견하자!</h1><p>전개도로 겉넓이를 알아보고, 손가락으로 뿔을 기울여 물을 세 번 부어 보세요. 공식을 보기 전에 직접 규칙을 찾아봅시다.</p></div>
+<nav class="tabs" aria-label="탐구 단계"><button type="button" class="tab active" data-tab="net">📐 겉넓이</button><button type="button" class="tab" data-tab="pour">💧 부피</button><button type="button" class="tab" data-tab="quiz">✏️ 도전 문제</button></nav>
+<section class="panel" id="pour"><div class="card"><div class="sectionhead"><h2>실험 1. 몇 번 부으면 가득 찰까?</h2><span class="tag">드래그 실험</span></div><p class="description">밑면의 넓이와 높이가 같은 뿔과 기둥을 비교해요. 물이 든 뿔을 손가락으로 <b>기둥 쪽으로 드래그</b>하고 <b>기울여 부어 보세요.</b></p>
+<div class="switch" id="shapeSwitch"><button class="active" data-shape="cone">원뿔 ↔ 원기둥</button><button data-shape="pyramid">사각뿔 ↔ 사각기둥</button></div>
+<div class="instructions" id="instructions">👆 왼쪽의 물이 든 원뿔을 잡고 오른쪽 원기둥 위로 끌어보세요. 목표 영역에 닿으면 손을 놓지 말고 오른쪽으로 더 밀어 기울여 보세요.</div>
+<div class="stage"><svg class="pour-svg" id="pourSvg" viewBox="0 0 680 400" role="img" aria-label="뿔을 드래그해서 기둥에 물을 붓는 실험">
+<defs>
+  <clipPath id="bodyClip"><rect x="437" y="128" width="144" height="210" rx="8"/></clipPath>
+  <linearGradient id="waterGradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#75e3fa"/><stop offset="1" stop-color="#24aee0"/></linearGradient>
+  <linearGradient id="prismTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f4ff"/><stop offset="1" stop-color="#c7dbf0"/></linearGradient>
+</defs>
+<rect x="412" y="43" width="210" height="315" rx="20" fill="#d9f0ff" opacity=".55" stroke="#a7ddff" stroke-dasharray="7 7"/><text x="516" y="64" fill="#4489b5" font-size="13" font-weight="900" text-anchor="middle">여기로 가져와 기울이기 ↗</text>
+<line x1="50" y1="338" x2="626" y2="338" stroke="#bdcfe7" stroke-width="4" stroke-linecap="round"/>
+<g clip-path="url(#bodyClip)"><rect id="columnWater" x="438" y="338" width="142" height="0" fill="url(#waterGradient)" opacity=".87"/></g>
+<g id="columnContainer">
+  <g id="cylinderShell">
+    <ellipse cx="509" cy="128" rx="72" ry="12" fill="#ffffff" fill-opacity=".78" stroke="#7194b7" stroke-width="4"/>
+    <path d="M437 128 V338 M581 128 V338" stroke="#7194b7" fill="none" stroke-width="5" stroke-linejoin="round"/>
+    <ellipse cx="509" cy="338" rx="72" ry="12" fill="#e8f5ff" fill-opacity=".9" stroke="#7194b7" stroke-width="4"/>
+    <path d="M437 268 H581 M437 198 H581" stroke="#9ab7ce" stroke-width="2" stroke-dasharray="5 7"/>
+    <text x="509" y="357" text-anchor="middle" fill="#5f7898" font-size="12" font-weight="800">밑면(원)</text>
+  </g>
+  <g id="prismShell" style="display:none">
+    <polygon points="458,116 548,116 581,136 491,136" fill="url(#prismTop)" stroke="#7194b7" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="458,116 491,136 491,338 458,318" fill="#edf7ff" stroke="#7194b7" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="491,136 581,136 581,338 491,338" fill="#ffffff" fill-opacity=".45" stroke="#7194b7" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="458,318 491,338 581,338 548,318" fill="#d8ebff" stroke="#7194b7" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M491 268 H581 M491 198 H581" stroke="#9ab7ce" stroke-width="2" stroke-dasharray="5 7"/>
+  </g>
+  <text x="588" y="272" class="capacityText">1/3</text><text x="588" y="202" class="capacityText">2/3</text><text x="588" y="132" class="capacityText">3/3</text>
+</g>
+<g id="pourSource" class="shape-handle">
+  <g id="coneSource">
+    <path class="source-liquid" d="M0 8 L-58 152 Q0 170 58 152 Z" fill="url(#waterGradient)" opacity=".83"/>
+    <path d="M0 8 L-58 152 Q0 170 58 152 Z" fill="#ffffff" fill-opacity=".10" stroke="#647fa6" stroke-width="5" stroke-linejoin="round"/>
+    <ellipse cx="0" cy="152" rx="58" ry="10" fill="#dff3ff" fill-opacity=".95" stroke="#647fa6" stroke-width="4"/>
+    <ellipse cx="0" cy="152" rx="58" ry="10" fill="none" stroke="#647fa6" stroke-width="2"/>
+  </g>
+  <g id="pyramidSource" style="display:none">
+    <polygon class="source-liquid" points="0,10 -58,146 0,164 58,146" fill="#62c4e8" opacity=".83"/>
+    <polygon points="0,10 -58,146 0,164" fill="#53b7df" stroke="#647fa6" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="0,10 58,146 0,164" fill="#78d2ef" stroke="#647fa6" stroke-width="4" stroke-linejoin="round"/>
+    <polygon points="-58,146 0,164 58,146 0,128" fill="#cfe9ff" stroke="#647fa6" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+</g>
+<path id="stream" class="waterstream" d="" fill="none" stroke="#27b8e6" stroke-width="12" stroke-linecap="round" stroke-dasharray="14 8"/>
+<text x="183" y="370" text-anchor="middle" fill="#64748b" font-size="17" font-weight="800" id="sourceLabel">원뿔</text><text x="510" y="370" text-anchor="middle" fill="#64748b" font-size="17" font-weight="800" id="columnLabel">원기둥</text><text x="30" y="27" fill="#556480" font-size="14" font-weight="800" id="stateLabel">💦 물 1회분 준비!</text>
+</svg></div>
+<div class="statrow"><div class="stat"><strong id="count">0 / 3</strong><span>부은 횟수</span></div><div class="stat"><strong id="percent">0%</strong><span>기둥에 채운 물</span></div><div class="stat"><strong id="sourceState">가득 참</strong><span>뿔의 물 상태</span></div></div><div class="bar"><div id="progress"></div></div>
+<div class="btnrow"><button class="btn secondary" id="refill" disabled>💦 뿔에 물 다시 채우기</button><button class="btn" id="resetPour">↻ 처음부터</button><button class="btn secondary" id="accessiblePour">버튼으로 물 붓기</button></div>
+<div class="question">🔍 실험 전에 예측: 기둥을 가득 채우려면 뿔의 물을 몇 번 부어야 할까요?</div><div class="choices" id="prediction"><button data-answer="2">2번</button><button data-answer="3">3번</button><button data-answer="4">4번</button></div><div class="feedback" id="pourFeedback" aria-live="polite">예상한 횟수를 고른 뒤 직접 실험해 보세요.</div><div class="formula hidden" id="volumeFormula">뿔의 부피 = 밑넓이 × 높이 × ⅓</div>
+</div></section>
+<section class="panel active" id="net"><div class="card">
+<div class="sectionhead"><h2>탐구 1. 펼쳐서 겉넓이 발견하기</h2><span class="tag">손가락으로 회전 · 접기</span></div>
+<p class="description">입체도형을 손가락으로 돌려 보고, 전개도를 펼쳐 보세요. 각 면의 모양과 넓이를 연결해 봅시다.</p>
+<div class="switch" id="netSwitch"><button class="active" data-net="pyramid">🔺 각뿔 탐구</button><button data-net="cone">🍦 원뿔 탐구</button></div>
+<div id="pyramidArea">
+<div class="subhead">① 밑면 모양 선택하기</div>
+<div class="switch" id="baseSwitch"><button data-n="3">삼각뿔</button><button class="active" data-n="4">사각뿔</button><button data-n="5">오각뿔</button></div>
+<div class="explore-grid">
+<div><div class="viewer-caption">입체도형 <span>👆 드래그하여 360° 회전</span></div><div class="stage interact-stage"><svg id="solidSvg" viewBox="0 0 360 300" aria-label="손가락으로 회전하는 각뿔 입체도형" role="img"><g id="solidDrawing"></g></svg></div><div class="btnrow center"><button class="btn secondary" id="resetOrbit">⟳ 보는 방향 초기화</button></div></div>
+<div><div class="viewer-caption">전개도 <span>각 면을 눌러 확인</span></div><div class="stage interact-stage"><svg id="polygonNetSvg" viewBox="0 0 360 300" role="img" aria-label="선택한 각뿔의 전개도"><g id="polygonNetDrawing"></g></svg></div><div class="btnrow center"><button class="btn secondary" id="toggleFold">🔺 접어 보기</button></div></div>
+</div>
+<p class="note" id="netDesc" aria-live="polite">밑면을 선택한 뒤 각 면을 터치해 보세요.</p>
+<div class="rangebox"><label for="foldRange"><b>② 전개도 접기·펼치기</b> <span id="foldValue">0%</span></label><input id="foldRange" type="range" min="0" max="100" value="0"><div class="small">0%에서는 전개도, 100%에서는 완성된 입체를 강조해 비교할 수 있어요. 중간값은 두 모습을 겹쳐 보여 줍니다.</div></div>
+<div class="explore-grid"><div class="rangebox"><label for="sizeRange"><b>밑면 한 변</b> <span id="sizeValue">6</span> cm</label><input id="sizeRange" type="range" min="2" max="10" value="6"></div><div class="rangebox"><label for="slantRange"><b>옆면 삼각형의 높이</b> <span id="slantValue">7</span> cm</label><input id="slantRange" type="range" min="4" max="15" value="7"></div></div>
+<p class="small" id="netHint">정다각형 밑면과 서로 합동인 이등변삼각형 옆면을 가진 각뿔입니다. 옆면의 높이는 뿔의 수직 높이와 달라요.</p>
+<button class="btn primary" id="showArea">🧮 겉넓이 계산 과정 확인</button><div class="note hidden area-output" id="areaResult" aria-live="polite"></div>
+</div>
+<div id="coneArea" class="hidden"><div class="subhead">① 원뿔을 보고 전개도를 펼쳐 보자.</div>
+<p class="small">먼저 원뿔을 관찰한 뒤, 버튼을 눌러 전개도를 펼쳐 보세요. 원뿔의 전개도는 <b>부채꼴 1개와 원 1개</b>로 이루어집니다.</p>
+<div class="explore-grid"><div><div class="viewer-caption">원뿔 <span>완성된 입체도형</span></div><div class="stage interact-stage"><svg id="coneSolidSvg" viewBox="0 0 360 310" aria-label="완성된 원뿔" role="img"><g id="coneSolidDrawing"></g></svg></div></div><div><div class="viewer-caption">전개도 <span>펼쳐진 모습</span></div><div class="stage interact-stage"><svg id="coneNetSvg" viewBox="0 0 360 310" aria-label="원뿔의 전개도" role="img"><g id="coneNetDrawing"></g></svg></div></div></div>
+<div class="btnrow"><button class="btn primary" id="showConeNet">📐 전개도 펼쳐 보기</button><button class="btn secondary" id="assembleCone">🧩 원뿔로 조립하기</button><button class="btn secondary" id="unfoldCone">↩ 다시 펼치기</button></div>
+<p class="note" id="coneFeedback" aria-live="polite">전개도를 펼쳐 보면 큰 부채꼴은 옆면, 작은 원은 밑면이에요.</p>
+</div></div></section>
+<section class="panel" id="quiz"><div class="card"><h2>실험 3. 나는 뿔 탐정! 🕵️</h2><p class="description">실험에서 발견한 규칙으로 문제를 풀어 보세요. 정답은 직접 입력해야 확인할 수 있어요.</p><div class="note" id="quizText">밑넓이가 36 cm²이고 높이가 9 cm인 사각뿔의 부피는 몇 cm³인가요?</div><div class="inputline"><label for="quizInput">내 답</label><input id="quizInput" type="number" inputmode="decimal" placeholder="숫자 입력"><span id="quizUnit">cm³</span><button class="btn primary" id="checkQuiz">정답 확인</button></div><p id="quizFeedback" class="feedback" aria-live="polite"></p><button class="btn secondary" id="nextQuiz">다음 문제 →</button><p class="small">문제는 사각뿔의 부피, 원뿔의 부피, 겉넓이, 부피의 비를 포함해요.</p></div></section>
+<footer class="footer">학습용 개념 모형입니다. 물 붓기는 같은 밑넓이와 같은 높이를 가진 뿔·기둥의 부피 비를 보여주는 시뮬레이션이며, 실제 유체 물리 엔진은 아닙니다.</footer>
+</div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===b.dataset.tab));}));
+let shape='cone',count=0,filled=true,dragging=false,pointer=null,position={x:183,y:151},angle=0,animating=false,prediction=null;const svg=$('pourSvg'),src=$('pourSource'),stream=$('stream');let start={x:0,y:0},origin={x:183,y:151};
+function labelShape(){const cone=shape==='cone';$('sourceLabel').textContent=cone?'원뿔':'사각뿔';$('columnLabel').textContent=cone?'원기둥':'사각기둥';$('instructions').innerHTML=`👆 왼쪽의 물이 든 ${cone?'원뿔':'사각뿔'}을 잡고 오른쪽 ${cone?'원기둥':'사각기둥'} 위로 끌어보세요. 목표 영역에서 손을 놓지 말고 오른쪽으로 더 밀어 기울여 보세요.`;$('coneSource').style.display=cone?'':'none';$('pyramidSource').style.display=cone?'none':'';$('cylinderShell').style.display=cone?'':'none';$('prismShell').style.display=cone?'none':'';}
+function setSource(){src.setAttribute('transform',`translate(${position.x} ${position.y}) rotate(${angle})`);document.querySelectorAll('.source-liquid').forEach(node=>node.style.opacity=filled?'.83':'0');}
+function render(){const pct=count/3*100;$('count').textContent=`${count} / 3`;$('percent').textContent=`${Math.round(pct)}%`;$('progress').style.width=pct+'%';$('columnWater').setAttribute('y',338-210*count/3);$('columnWater').setAttribute('height',210*count/3);$('sourceState').textContent=filled?'가득 참':'비어 있음';$('refill').disabled=filled||count>=3||animating;$('accessiblePour').disabled=count>=3||!filled||animating;setSource();}
+function reset(){count=0;filled=true;dragging=false;animating=false;position={x:183,y:151};angle=0;stream.classList.remove('visible');$('volumeFormula').classList.add('hidden');$('stateLabel').textContent='💦 물 1회분 준비!';$('pourFeedback').textContent='예상한 횟수를 고른 뒤 직접 실험해 보세요.';render();}
+document.querySelectorAll('#shapeSwitch button').forEach(b=>b.addEventListener('click',()=>{shape=b.dataset.shape;document.querySelectorAll('#shapeSwitch button').forEach(x=>x.classList.toggle('active',x===b));labelShape();reset();}));
+$('prediction').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{prediction=Number(b.dataset.answer);$('prediction').querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===b));$('pourFeedback').textContent='예측 완료! 실제로 물을 부어 확인해 보세요.';}));
+function point(evt){const c=svg.createSVGPoint();c.x=evt.clientX;c.y=evt.clientY;const matrix=svg.getScreenCTM();if(!matrix)return {x:0,y:0};const p=c.matrixTransform(matrix.inverse());return {x:p.x,y:p.y};}
+function inTarget(){return position.x>385&&position.x<550&&position.y>-5&&position.y<205;}
+function pour(){if(animating||!filled||count>=3)return;animating=true;dragging=false;filled=false;position={x:404,y:58};angle=105;setSource();stream.setAttribute('d','M 426 70 Q 465 80 500 128');stream.classList.add('visible');$('stateLabel').textContent='💦 물을 붓는 중...';let old=count;const startTime=performance.now();const water=$('columnWater');function step(t){let p=Math.min(1,(t-startTime)/1000),e=p*p*(3-2*p),h=210*(old+e)/3;water.setAttribute('y',338-h);water.setAttribute('height',h);$('progress').style.width=((old+e)/3*100)+'%';$('percent').textContent=Math.round((old+e)/3*100)+'%';if(p<1){requestAnimationFrame(step)}else{count++;stream.classList.remove('visible');position={x:183,y:151};angle=0;animating=false;render();if(count===3){$('stateLabel').textContent='🎉 세 번 만에 가득 찼어요!';$('pourFeedback').textContent=`발견 성공! ${prediction===null?'':prediction===3?'예측도 맞았네요! ':'예측과 다른 결과였죠? '}뿔의 부피는 같은 밑넓이·높이를 가진 기둥 부피의 ⅓이에요.`;$('volumeFormula').classList.remove('hidden');}else{$('stateLabel').textContent=`✅ ${count}번 붓기 완료!`;$('pourFeedback').textContent=`${count}/3만큼 채웠어요. 뿔에 물을 다시 채워 계속 실험하세요.`;}}}requestAnimationFrame(step);}
+src.addEventListener('pointerdown',e=>{if(!filled||animating||count>=3)return;e.preventDefault();dragging=true;pointer=e.pointerId;src.setPointerCapture(pointer);start=point(e);origin={...position};$('stateLabel').textContent='✋ 잡았어요! 오른쪽으로 움직여 보세요.';});
+src.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointer)return;e.preventDefault();const p=point(e);position={x:Math.max(75,Math.min(540,origin.x+p.x-start.x)),y:Math.max(-45,Math.min(190,origin.y+p.y-start.y))};angle=inTarget()?Math.max(0,Math.min(105,(position.x-385)*.8)):0;setSource();if(inTarget())$('stateLabel').textContent=angle>45?'💦 거의 다 기울였어요!':'↗ 오른쪽으로 더 밀면 물이 나와요!';});
+function end(e){if(!dragging||e.pointerId!==pointer)return;dragging=false;if(inTarget()&&angle>45){pour();}else{position={x:183,y:151};angle=0;setSource();$('stateLabel').textContent='👆 기둥 위쪽까지 옮기고 기울여 보세요.';}}src.addEventListener('pointerup',end);src.addEventListener('pointercancel',end);
+$('refill').addEventListener('click',()=>{if(count>=3)return;filled=true;$('stateLabel').textContent='💦 다시 가득 채웠어요!';render();});$('resetPour').addEventListener('click',reset);$('accessiblePour').addEventListener('click',pour);
+ // surface area interactive 3D and net exploration
+const ns='http://www.w3.org/2000/svg';
+function el(tag,attrs={},value){const node=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))node.setAttribute(k,v);if(value!==undefined)node.textContent=value;return node;}
+function addText(g,x,y,t,extra={}){g.append(el('text',{x,y,'font-size':14,'font-weight':800,'text-anchor':'middle',fill:'#405375',...extra},t));}
+function ptStr(pts){return pts.map(p=>p.map(x=>+x.toFixed(2)).join(',')).join(' ')}
+let baseN=4,fold=0,yaw=-0.55,pitch=0.5,orbitPointer=null,net='pyramid';
+const palette=['#ffbeaa','#ffc973','#aae3ce','#c5c0ff','#97d3f4'];
+function polygonData(n){const R=68,verts=Array.from({length:n},(_,j)=>{const a=-Math.PI/2+2*Math.PI*j/n;return [R*Math.cos(a),R*Math.sin(a)]});return {R,verts};}
+function renderSolid(){let g=$('solidDrawing');g.replaceChildren();const {verts}=polygonData(baseN),sl=Number($('slantRange').value),a=Number($('sizeRange').value),apothem=68*Math.cos(Math.PI/baseN),side=2*68*Math.sin(Math.PI/baseN),faceAlt=68*(sl/a)*side/a, height=Math.sqrt(Math.max(20,faceAlt*faceAlt-apothem*apothem));
+const apex=[0,0,height],base=verts.map(v=>[v[0],v[1],0]);const faces=[{points:base,fill:'#b1dbfc',label:'밑면'}];for(let i=0;i<baseN;i++)faces.push({points:[base[i],base[(i+1)%baseN],apex],fill:palette[i],label:'옆면'});
+// 현재 회전 각도에서 꼭짓점 전체의 경계를 계산해 화면 안에 자동으로 맞춥니다.
+// 슬라이더로 높이를 바꾸거나 스마트폰에서 회전해도 꼭짓점이 잘리지 않습니다.
+const rotate=p=>{let [x,y,z]=p;const xr=x*Math.cos(yaw)-y*Math.sin(yaw),yr=x*Math.sin(yaw)+y*Math.cos(yaw);return {x:xr,y:yr*Math.cos(pitch)-z*Math.sin(pitch),d:yr*Math.sin(pitch)+z*Math.cos(pitch)};};
+const all=[...base,apex].map(rotate);
+const minX=Math.min(...all.map(p=>p.x)),maxX=Math.max(...all.map(p=>p.x));
+const minY=Math.min(...all.map(p=>p.y)),maxY=Math.max(...all.map(p=>p.y));
+const fit=Math.min(270/Math.max(1,maxX-minX),215/Math.max(1,maxY-minY));
+const centerX=(minX+maxX)/2,centerY=(minY+maxY)/2;
+const project=p=>{const q=rotate(p);return {x:180+(q.x-centerX)*fit,y:137+(q.y-centerY)*fit,d:q.d};};
+const sorted=faces.map(f=>({...f,q:f.points.map(project)})).sort((a,b)=>a.q.reduce((s,p)=>s+p.d,0)/a.q.length-b.q.reduce((s,p)=>s+p.d,0)/b.q.length);
+for(const f of sorted){const p=el('polygon',{points:ptStr(f.q.map(q=>[q.x,q.y])),fill:f.fill,stroke:'#567ba9','stroke-width':2.5,'stroke-linejoin':'round','fill-opacity':'.88'});g.append(p);}
+addText(g,180,282,`${baseN===3?'삼각뿔':baseN===4?'사각뿔':'오각뿔'} · 드래그하여 회전`,{'font-size':13});}
+function renderPolygonNet(){const g=$('polygonNetDrawing');g.replaceChildren();const {verts}=polygonData(baseN);let scale=Math.min(1,115/(68/Math.cos(Math.PI/baseN)+105));const a=Number($('sizeRange').value),sl=Number($('slantRange').value);const side=2*68*Math.sin(Math.PI/baseN);let h=side*sl/a;const maxH=96;let k=Math.min(1,maxH/h);h*=k;const center=[180,148];
+const polygon=verts.map(v=>[center[0]+v[0]*scale,center[1]+v[1]*scale]);
+for(let i=0;i<baseN;i++){const v=polygon[i],w=polygon[(i+1)%baseN],mid=[(v[0]+w[0])/2,(v[1]+w[1])/2],dx=mid[0]-center[0],dy=mid[1]-center[1],m=Math.hypot(dx,dy);const tip=[mid[0]+dx/m*h,mid[1]+dy/m*h];let face=el('polygon',{points:ptStr([v,w,tip]),fill:palette[i],stroke:'#567ba9','stroke-width':2,'stroke-linejoin':'round',role:'button',tabindex:0,'aria-label':`옆면 ${i+1}`});face.addEventListener('click',()=>{$('netDesc').textContent=`옆면 ${i+1}: 밑변 ${a} cm × 삼각형 높이 ${sl} cm ÷ 2 = ${(a*sl/2).toFixed(1)} cm²`});g.append(face);}
+let b=el('polygon',{points:ptStr(polygon),fill:'#b1dbfc',stroke:'#567ba9','stroke-width':2.5,role:'button',tabindex:0,'aria-label':'밑면'});b.addEventListener('click',()=>{$('netDesc').textContent=`밑면은 정${baseN}각형입니다. 모든 옆면이 아니라 밑면 넓이도 겉넓이에 더해야 해요.`});g.append(b);addText(g,center[0],center[1]+5,'밑면');}
+function renderPyramid(){const a=Number($('sizeRange').value),minSlant=Math.max(4,Math.ceil(a/(2*Math.tan(Math.PI/baseN))+0.1));$('slantRange').min=minSlant;if(Number($('slantRange').value)<minSlant)$('slantRange').value=minSlant;const v=Number($('foldRange').value);fold=v/100;$('foldValue').textContent=`${v}%`;$('sizeValue').textContent=$('sizeRange').value;$('slantValue').textContent=$('slantRange').value;renderSolid();renderPolygonNet();$('polygonNetSvg').style.opacity=String(Math.max(.08,1-fold*.92));$('solidSvg').style.opacity=String(Math.max(.25,fold));$('toggleFold').textContent=fold>=.99?'📐 펼쳐 보기':'🔺 접어 보기';}
+$('solidSvg').addEventListener('pointerdown',e=>{e.preventDefault();orbitPointer={id:e.pointerId,x:e.clientX,y:e.clientY};e.currentTarget.setPointerCapture(e.pointerId)});
+$('solidSvg').addEventListener('pointermove',e=>{if(!orbitPointer||orbitPointer.id!==e.pointerId)return;let dx=e.clientX-orbitPointer.x,dy=e.clientY-orbitPointer.y;yaw+=dx*.015;pitch=Math.max(-1.4,Math.min(1.4,pitch+dy*.012));orbitPointer.x=e.clientX;orbitPointer.y=e.clientY;renderSolid()});
+for(let typ of ['pointerup','pointercancel'])$('solidSvg').addEventListener(typ,()=>orbitPointer=null);
+$('resetOrbit').addEventListener('click',()=>{yaw=-.55;pitch=.5;renderSolid()});
+$('toggleFold').addEventListener('click',()=>{$('foldRange').value=fold>=.99?0:100;renderPyramid()});
+$('foldRange').addEventListener('input',renderPyramid);
+$('baseSwitch').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{baseN=Number(b.dataset.n);document.querySelectorAll('#baseSwitch button').forEach(x=>x.classList.toggle('active',x===b));$('netDesc').textContent=`정${baseN}각형 밑면 1개 + 합동인 삼각형 옆면 ${baseN}개를 관찰하세요. 전개도의 각 면을 누르면 설명이 나와요.`;$('areaResult').classList.add('hidden');renderPyramid()}));
+$('sizeRange').addEventListener('input',()=>{$('areaResult').classList.add('hidden');renderPyramid()});$('slantRange').addEventListener('input',()=>{$('areaResult').classList.add('hidden');renderPyramid()});
+$('showArea').addEventListener('click',()=>{const a=Number($('sizeRange').value),s=Number($('slantRange').value),sideArea=baseN*a*s/2,ap=a/(2*Math.tan(Math.PI/baseN)),baseArea=baseN*a*ap/2,fmt=n=>Number(n.toFixed(2));$('areaResult').classList.remove('hidden');$('areaResult').innerHTML=`<b>정${baseN}각형 밑면의 넓이</b> ≈ ${fmt(baseArea)} cm²<br><b>삼각형 옆면 한 개</b> = ${a} × ${s} ÷ 2 = ${fmt(a*s/2)} cm²<br><b>옆넓이</b> = ${fmt(a*s/2)} × ${baseN} = ${fmt(sideArea)} cm²<br><b>겉넓이</b> = 밑넓이 + 옆넓이 ≈ <b>${fmt(baseArea+sideArea)} cm²</b><div class="small">삼각뿔·오각뿔의 정다각형 밑넓이는 소수 둘째 자리까지 나타냈어요.</div>`;});
+$('netSwitch').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{net=b.dataset.net;document.querySelectorAll('#netSwitch button').forEach(x=>x.classList.toggle('active',x===b));$('pyramidArea').classList.toggle('hidden',net!=='pyramid');$('coneArea').classList.toggle('hidden',net!=='cone');if(net==='cone'){renderCone();}}));
+let coneFold=0;
+function coneVars(){const r=3,l=9,angle=360*r/l;return {r,l,angle};}
+function sectorPath(cx,cy,R,deg){let a=-Math.PI/2-deg*Math.PI/360,b=a+deg*Math.PI/180;let x=cx+R*Math.cos(a),y=cy+R*Math.sin(a),ex=cx+R*Math.cos(b),ey=cy+R*Math.sin(b);return `M${cx} ${cy} L${x} ${y} A${R} ${R} 0 ${deg>180?1:0} 1 ${ex} ${ey} Z`}
+function renderCone(){const {r,l,angle}=coneVars();const netG=$('coneNetDrawing');const solidG=$('coneSolidDrawing');netG.replaceChildren();solidG.replaceChildren();
+netG.append(el('path',{d:sectorPath(180,145,112,angle),fill:'#a8dcff',stroke:'#567ba9','stroke-width':2.5}));
+netG.append(el('circle',{cx:180,cy:272,r:24,fill:'#ffd49c',stroke:'#a67f4f','stroke-width':2}));
+addText(netG,180,141,'부채꼴');addText(netG,252,277,'밑면(원)',{'font-size':12});
+addText(netG,180,24,'원뿔의 전개도',{'font-size':15,fill:'#395172'});
+const baseY=234, topY=72; solidG.append(el('path',{d:`M180 ${topY} L102 ${baseY} Q180 ${baseY+28} 258 ${baseY} Z`,fill:'#9fd9ff',stroke:'#567ba9','stroke-width':3,'fill-opacity':'.95'}));
+solidG.append(el('ellipse',{cx:180,cy:baseY,rx:78,ry:14,fill:'#f1c98b','fill-opacity':'.9',stroke:'#567ba9','stroke-width':2.5}));
+solidG.append(el('path',{d:`M102 ${baseY} Q180 ${baseY-6} 258 ${baseY}`,fill:'none',stroke:'#567ba9','stroke-width':2.5}));
+addText(solidG,180,26,'완성된 원뿔',{'font-size':15,fill:'#395172'});
+solidG.setAttribute('opacity',String(Math.max(.15,coneFold))); netG.setAttribute('opacity',String(Math.max(.12,1-coneFold*.9)));}
+$('showConeNet').addEventListener('click',()=>{coneFold=0;$('coneFeedback').innerHTML='전개도를 펼쳐 보았어요! 큰 <b>부채꼴</b>은 옆면, 작은 <b>원</b>은 밑면이에요.';renderCone()});
+$('assembleCone').addEventListener('click',()=>{coneFold=1;$('coneFeedback').innerHTML='조립 완료! 부채꼴의 호가 밑면 원의 둘레와 이어져 <b>원뿔의 옆면</b>이 됩니다.';renderCone()});
+$('unfoldCone').addEventListener('click',()=>{coneFold=0;$('coneFeedback').innerHTML='다시 펼쳤어요. 전개도에서 각 부분의 모양을 다시 살펴보세요.';renderCone()});
+renderPyramid();
+const questions=[{q:'밑넓이가 36 cm²이고 높이가 9 cm인 사각뿔의 부피는 몇 cm³인가요?',answer:108,why:'36 × 9 ÷ 3 = 108',unit:'cm³'},{q:'밑면 반지름이 3 cm이고 높이가 6 cm인 원뿔의 부피는 몇 π cm³인가요? (π의 계수만 입력)',answer:18,why:'3 × 3 × 6 ÷ 3 = 18이므로 18π cm³',unit:'π cm³'},{q:'밑면이 한 변 4 cm인 정사각형, 네 옆면이 밑변 4 cm, 높이 5 cm인 삼각형으로 이루어진 사각뿔의 겉넓이는 몇 cm²인가요?',answer:56,why:'밑넓이 16 + 옆넓이 (4 × 5 ÷ 2) × 4 = 56',unit:'cm²'},{q:'밑넓이와 높이가 같은 원뿔과 원기둥이 있습니다. 원기둥 부피가 90 cm³라면 원뿔 부피는 몇 cm³인가요?',answer:30,why:'90 ÷ 3 = 30',unit:'cm³'}];let qi=0;function renderQuiz(){$('quizText').textContent=questions[qi].q;$('quizUnit').textContent=questions[qi].unit;$('quizInput').value='';$('quizFeedback').textContent='';}function checkQuiz(){const v=$('quizInput').value;if(v.trim()===''){$('quizFeedback').textContent='답을 입력해 주세요.';return;}const q=questions[qi];$('quizFeedback').textContent=Number(v)===q.answer?'정답이에요! ✅ '+q.why:'다시 생각해 보세요. 겉넓이는 밑넓이와 옆넓이의 합, 부피는 밑넓이 × 높이 ÷ 3을 활용해요.';}$('checkQuiz').addEventListener('click',checkQuiz);$('quizInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkQuiz();});$('nextQuiz').addEventListener('click',()=>{qi=(qi+1)%questions.length;renderQuiz();});
+labelShape();render();renderPyramid();renderQuiz();
+})();
+</script>
+</body></html>
